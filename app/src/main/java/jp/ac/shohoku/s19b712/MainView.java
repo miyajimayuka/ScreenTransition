@@ -12,7 +12,7 @@ import android.view.View;
 public class MainView extends View{
  public final int FIRST = 1;
  public final int SECOND = 2;
-
+ public final int THIRD = 3;
 
          int state;
          public MainView(Context context, AttributeSet attrs) {
@@ -32,6 +32,10 @@ public class MainView extends View{
              p.setColor(Color.RED);
              canvas.drawARGB(255, 255, 255, 0);
              canvas.drawRect(100, 100, 300, 200, p);
+             } else if (state == THIRD){
+             p.setColor(Color.GREEN);
+             canvas.drawARGB(255, 0, 0, 0);
+             canvas.drawRect(100, 100, 300, 200, p);
              } else {
              Log.d("error", "never come here");
              }
@@ -45,7 +49,9 @@ public class MainView extends View{
              if(x>100 && x < 300 && y>100 && y<200) {
                  if(state == FIRST){
                      state = SECOND;
-                     } else if (state == SECOND){
+                     } else if (state == SECOND) {
+                     state = THIRD;
+                     } else if (state == THIRD) {
                      state = FIRST;
                      } else {
                      Log.d("error", "never come here");
