@@ -10,17 +10,17 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class MainView extends View{
- public final int FIRST = 1;
- public final int SECOND = 2;
- public final int THIRD = 3;
+    public final int FIRST = 1;
+    public final int SECOND = 2;
+    public final int THIRD = 3;
 
-         int state;
-         public MainView(Context context, AttributeSet attrs) {
-         super(context, attrs);
-         state = FIRST;
-         }
+    int state;
+    public MainView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        state = FIRST;
+    }
     @Override
- protected void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
          super.onDraw(canvas);
          Paint p = new Paint();
 
@@ -28,40 +28,40 @@ public class MainView extends View{
              p.setColor(Color.BLUE);
              canvas.drawARGB(255, 255, 255, 255);
              canvas.drawRect(100, 100, 300, 200, p);
-             } else if (state == SECOND){
+         } else if (state == SECOND){
              p.setColor(Color.RED);
              canvas.drawARGB(255, 255, 255, 0);
              canvas.drawRect(100, 100, 300, 200, p);
-             } else if (state == THIRD){
+         } else if (state == THIRD){
              p.setColor(Color.GREEN);
              canvas.drawARGB(255, 0, 0, 0);
              canvas.drawRect(100, 100, 300, 200, p);
-             } else {
+         } else {
              Log.d("error", "never come here");
-             }
          }
-        @Override
-        public boolean onTouchEvent(MotionEvent event) {
-            int x = (int) event.getX();
-             int y = (int) event.getY();
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int x = (int) event.getX();
+        int y = (int) event.getY();
 
 
-             if(x>100 && x < 300 && y>100 && y<200) {
-                 if(state == FIRST){
-                     state = SECOND;
-                     } else if (state == SECOND) {
-                     state = THIRD;
-                     } else if (state == THIRD) {
-                     state = FIRST;
-                     } else {
-                     Log.d("error", "never come here");
-                     }
-                 }
+        if(x>100 && x < 300 && y>100 && y<200) {
+            if(state == FIRST){
+                state = SECOND;    //状態1
+            } else if (state == SECOND) {
+                state = THIRD;     //状態2
+            } else if (state == THIRD) {
+                state = FIRST;     //状態3
+            } else {
+                Log.d("error", "never come here");
+            }
+        }
 
-            invalidate();
-            return super.onTouchEvent(event);
-             }
- }
+        invalidate();
+        return super.onTouchEvent(event);
+    }
+}
 
 
 
