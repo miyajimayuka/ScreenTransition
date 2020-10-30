@@ -12,7 +12,6 @@ import android.view.View.OnClickListener;
 
 public class MainActivity extends Activity {
     int count = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +34,12 @@ public class MainActivity extends Activity {
                     layout.removeAllViews();
                     getLayoutInflater().inflate(R.layout.view3, layout);
                     count=3;
-                 } else if (count == 3){
-                    LinearLayout layout = (LinearLayout) findViewById(R.id.linearlayout2);
-                    layout.removeAllViews();
-                    getLayoutInflater().inflate(R.layout.view1, layout);
-                    count=1;
+                 } else if (count == 3) {
+                     LinearLayout layout = (LinearLayout) findViewById(R.id.linearlayout2);
+                     layout.removeAllViews();
+                     getLayoutInflater().inflate(R.layout.view1, layout);
+                     count = 1;
+                 }
              }
         });
     }
