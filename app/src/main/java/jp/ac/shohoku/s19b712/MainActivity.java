@@ -1,9 +1,7 @@
 package jp.ac.shohoku.s19b712;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.Activity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +11,7 @@ import android.view.View.OnClickListener;
 
 
 public class MainActivity extends Activity {
+    int count = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +33,13 @@ public class MainActivity extends Activity {
                  } else if (count == 2){
                     LinearLayout layout = (LinearLayout) findViewById(R.id.linearlayout2);
                     layout.removeAllViews();
+                    getLayoutInflater().inflate(R.layout.view3, layout);
+                    count=3;
+                 } else if (count == 3){
+                    LinearLayout layout = (LinearLayout) findViewById(R.id.linearlayout2);
+                    layout.removeAllViews();
                     getLayoutInflater().inflate(R.layout.view1, layout);
                     count=1;
-                 }
              }
         });
     }
